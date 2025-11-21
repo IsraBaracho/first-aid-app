@@ -1,0 +1,46 @@
+.call-samu-btn {
+  width: 100%;
+  max-width: 550px;
+  background-color: #F24D4D;
+  border: none;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+/* Animação leve ao clicar */
+.call-samu-btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* Organiza o texto */
+.call-samu-btn .text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Título */
+.call-samu-btn .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Subtítulo */
+.call-samu-btn .subtitle {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+/* Ícone */
+.call-samu-btn .icon {
+  width: 28px;
+  height: 28px;
+}
