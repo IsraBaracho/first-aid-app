@@ -1,3 +1,16 @@
 .site-header {
   background-color: #04826A;
+
+  display: flex;
+  justify-content: center;     /* Centraliza os dois botões */
+  align-items: center;          /* Alinha verticalmente */
+  gap: 1rem;                    /* Espaço entre os botões */
+}
+
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1.5rem 7vw;
+  }
 }

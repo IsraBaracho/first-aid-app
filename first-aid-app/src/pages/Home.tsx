@@ -1,25 +1,26 @@
-import ExampleCard from '../components/ExampleCard'
+import ExampleCard from '../components/cards/ExampleCard'
+import HeroBanner from '../components/banner/heroBanner'
 
 export default function Home() {
   return (
     <main>
-      <div className="container">
+      <HeroBanner/>
+      <div className="container">      
+
         <h2>Welcome to First Aid App</h2>
         <p>This is your starting point for the First Aid application.</p>
 
         <h3 style={{marginTop: 20}}>Examples (props + state)</h3>
 
         <ExampleCard
-          title="CPR Basics"
-          description="How to perform CPR safely and when to call emergency services."
-          initialLikes={2}
+          title="Ressuscitação Cardiopulmonar (RCP)"
+          description="A RCP é uma técnica de emergência que combina compressões torácicas..."
+          tags={["CORAÇÃO", "ALTO RISCO"]}
         />
 
-        <ExampleCard
-          title="Bleeding Control"
-          description="Steps to control severe bleeding until help arrives."
-          initialLikes={0}
-        />
+        <h3 style={{marginTop: 20}}>Examples (props + state)</h3>
+
+        <h3 style={{marginTop: 20}}>Examples (props + state)</h3><h3 style={{marginTop: 20}}>Examples (props + state)</h3><h3 style={{marginTop: 20}}>Examples (props + state)</h3>
       </div>
     </main>
   )
