@@ -1,13 +1,14 @@
-import Header from './components/header/Header'
-import Footer from './components/Footer'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
+import EmergencyPage from './pages/emergencyPage/emergencyPage'
 
 export default function App() {
   return (
-    <div>
-      <Header />
-      <Home />
-      <Footer />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/emergency" element={<EmergencyPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }

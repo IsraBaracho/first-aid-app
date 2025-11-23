@@ -29,6 +29,9 @@ header {
   color: white;
   text-align: center;
   padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 
@@ -38,7 +41,7 @@ footer {
   color: white;
   text-align: center;
   padding: 1rem;
-  position: fixed;
+  /*position: fixed;*/
   bottom: 0;
   width: 100%;
 }
