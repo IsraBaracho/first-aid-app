@@ -3,7 +3,10 @@
     "id": "rcp",
     "slug": "ressuscitacao-cardiopulmonar",
     "title": "Ressuscitação Cardiopulmonar (RCP)",
-    "tags": ["CORAÇÃO", "ALTO RISCO"],
+    "tags": [
+      "CORAÇÃO",
+      "ALTO RISCO"
+    ],
     "description": "A RCP é uma técnica de emergência que combina compressões torácicas e ventilação artificial para manter o fluxo sanguíneo e oxigenação.",
     "cta": {
       "title": "Quando chamar o SAMU",
@@ -24,7 +27,10 @@
     "id": "hemorragia",
     "slug": "hemorragia-externa",
     "title": "Hemorragia Externa",
-    "tags": ["SANGUE", "EMERGÊNCIA"],
+    "tags": [
+      "SANGUE",
+      "EMERGÊNCIA"
+    ],
     "description": "Como controlar sangramentos externos importantes até a chegada do socorro.",
     "cta": {
       "title": "Quando chamar o SAMU",
@@ -36,6 +42,28 @@
       "Se possível, eleve o membro afetado acima do nível do coração",
       "Não remova objetos cravados — pressione ao redor",
       "Procure atendimento profissional o mais rápido possível"
+    ]
+  },
+  {
+    "id": "israel",
+    "slug": "israeleal",
+    "title": "Israel",
+    "tags": [
+      "isra",
+      "novo",
+      "quero"
+    ],
+    "description": "geracao de loreispum",
+    "cta": {
+      "title": "Israel conseguiuu",
+      "subtitle": "Israel conseguiuu"
+    },
+    "steps": [
+      "Teste a",
+      "Teste a",
+      "Teste a",
+      "Teste a",
+      "Teste a"
     ]
   }
 ]

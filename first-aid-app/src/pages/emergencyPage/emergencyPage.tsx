@@ -13,15 +13,16 @@ export default function EmergencyPage(){
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    if (!id) return
     setLoading(true)
-    fetch('/emergencies.json')
+    fetch(`/api/emergencies/${encodeURIComponent(id)}`)
       .then(res => {
-        if(!res.ok) throw new Error('Falha ao carregar emergências')
+        if (res.status === 404) return null
+        if(!res.ok) throw new Error('Falha ao carregar emergência')
         return res.json()
       })
-      .then((data:any[]) => {
-        const found = data.find((e:any) => e.id === id || e.slug === id)
-        setItem(found || null)
+      .then((data:any | null) => {
+        setItem(data || null)
       })
       .catch(err => setError(String(err)))
       .finally(() => setLoading(false))

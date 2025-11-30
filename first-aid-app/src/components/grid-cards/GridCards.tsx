@@ -9,7 +9,7 @@ export default function GridCards(){
 
   useEffect(() => {
     setLoading(true)
-    fetch('/emergencies.json')
+    fetch('/api/emergencies')
       .then((res) => {
         if(!res.ok) throw new Error('Falha ao carregar dados')
         return res.json()
