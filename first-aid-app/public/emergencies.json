@@ -1,0 +1,41 @@
+[
+  {
+    "id": "rcp",
+    "slug": "ressuscitacao-cardiopulmonar",
+    "title": "Ressuscitação Cardiopulmonar (RCP)",
+    "tags": ["CORAÇÃO", "ALTO RISCO"],
+    "description": "A RCP é uma técnica de emergência que combina compressões torácicas e ventilação artificial para manter o fluxo sanguíneo e oxigenação.",
+    "cta": {
+      "title": "Quando chamar o SAMU",
+      "subtitle": "Ligue 192 imediatamente se a pessoa estiver inconsciente e não respirando"
+    },
+    "steps": [
+      "Verifique a consciência da vítima tocando seus ombros e perguntando se está bem",
+      "Chame ajuda médica imediatamente (SAMU 192)",
+      "Posicione a vítima de costas em superfície rígida e plana",
+      "Posicione as mãos no centro do peito, entre os mamilos",
+      "Faça 30 compressões profundas (5-6 cm) a um ritmo de 100-120 por minuto",
+      "Abra as vias aéreas inclinando a cabeça para trás",
+      "Faça 2 ventilações boca a boca (se treinado)",
+      "Continue ciclos de 30 compressões e 2 ventilações até a chegada do socorro"
+    ]
+  },
+  {
+    "id": "hemorragia",
+    "slug": "hemorragia-externa",
+    "title": "Hemorragia Externa",
+    "tags": ["SANGUE", "EMERGÊNCIA"],
+    "description": "Como controlar sangramentos externos importantes até a chegada do socorro.",
+    "cta": {
+      "title": "Quando chamar o SAMU",
+      "subtitle": "Ligue 192 se o sangramento for intenso e não for possível controlar"
+    },
+    "steps": [
+      "Faça pressão direta sobre o ferimento com um pano limpo",
+      "Mantenha a pressão por pelo menos 10 minutos",
+      "Se possível, eleve o membro afetado acima do nível do coração",
+      "Não remova objetos cravados — pressione ao redor",
+      "Procure atendimento profissional o mais rápido possível"
+    ]
+  }
+]

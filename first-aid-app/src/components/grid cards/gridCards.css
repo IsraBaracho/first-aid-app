@@ -1,4 +1,6 @@
 .cards-grid {
+  padding-top: 50px;
+  padding-bottom: 50px;
   display: grid;
   gap: 24px;
 
@@ -7,8 +9,8 @@
 
   /* largura máxima global */
   max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 24px;
+  margin-inline: 0 auto;
+  padding-inline: 0 24px;
 }
 
 /* 📱 Mobile: 1 card por linha */

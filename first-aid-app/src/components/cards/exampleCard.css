@@ -9,6 +9,8 @@
   max-width: 650px;
   margin: 0 auto;
   cursor: pointer; /* Para indicar que o card é interativo */
+  text-decoration: none;
+  color: inherit;
 }
 
 /* HOVER NO CARD */
@@ -47,6 +49,7 @@
   flex-shrink: 0;
   color: white;
   font-size: 24px;
+  text-decoration: none;
 }
 
 .card-content {
