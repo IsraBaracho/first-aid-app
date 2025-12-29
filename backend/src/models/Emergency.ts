@@ -26,8 +26,8 @@ export interface EmergencyDTO {
 }
 
 export interface UpdateEmergencyDTO {
-    title: string;
-    steps: Step[];
+    title?: string;
+    steps?: Step[];
     slug?: string;
     tags?: string[];
     description?: string;

@@ -1,0 +1,23 @@
+[
+  {
+    "id": "engasgo-em-adultos-1767036200198",
+    "slug": "engasgo-em-adultos",
+    "title": "Engasgo em Adultos",
+    "tags": [
+      "engasgo",
+      "emergência"
+    ],
+    "description": "",
+    "cta": null,
+    "steps": [
+      {
+        "title": "Incentive a tosse",
+        "description": "Se a pessoa consegue tossir, incentive"
+      },
+      {
+        "title": "Manobra de Heimlich",
+        "description": "Se não consegue respirar, aplique compressões abdominais"
+      }
+    ]
+  }
+]
