@@ -1,70 +1,164 @@
-import fs from 'fs/promises';
-import path from 'path';
+import prisma from '../config/database';
 import { Emergency } from '../models/Emergency';
 
 export class EmergencyRepository {
-    private filePath: string;
-
-    constructor(){
-        this.filePath = path.join(__dirname, '../../data/emergencies.json');
+    
+    
+    async findAll(): Promise<Emergency[]> {
+        const emergencies = await prisma.emergency.findMany({
+            include: {
+                steps: {
+                    orderBy: {
+                        order: 'asc'
+                    }
+                }
+            },
+            orderBy: {
+                createdAt: 'desc'  // Mais recentes primeiro
+            }
+        });
+        
+        return emergencies.map(this.mapToEmergency);
     }
 
-    private async readFile(): Promise<Emergency[]>{
+    
+    async findById(id: string): Promise<Emergency | null> {
+        const emergency = await prisma.emergency.findFirst({
+            where: {
+                OR: [
+                    { id: id },
+                    { slug: id }
+                ]
+            },
+            include: {
+                steps: {
+                    orderBy: {
+                        order: 'asc'
+                    }
+                }
+            }
+        });
+
+        if (!emergency) return null;
+        
+        return this.mapToEmergency(emergency);
+    }
+
+    
+    async create(emergency: Emergency): Promise<Emergency> {
+        const created = await prisma.emergency.create({
+            data: {
+                id: emergency.id,
+                slug: emergency.slug,
+                title: emergency.title,
+                description: emergency.description,
+                cta: emergency.cta,
+                tags: emergency.tags,
+                steps: {
+                    create: emergency.steps.map((step, index) => ({
+                        title: step.title,
+                        description: step.description,
+                        order: index
+                    }))
+                }
+            },
+            include: {
+                steps: {
+                    orderBy: {
+                        order: 'asc'
+                    }
+                }
+            }
+        });
+
+        return this.mapToEmergency(created);
+    }
+
+    
+    async update(id: string, data: Partial<Emergency>): Promise<Emergency | null> {
         try {
-            const data = await fs.readFile(this.filePath, 'utf-8');
-            if(!data || data.trim() === ''){
-                return [];
+            
+            const exists = await this.findById(id);
+            if (!exists) return null;
+
+            
+            if (data.steps) {
+                await prisma.step.deleteMany({
+                    where: { emergencyId: exists.id }
+                });
             }
-            return JSON.parse(data);
+
+            const updated = await prisma.emergency.update({
+                where: {
+                    id: exists.id
+                },
+                data: {
+                    ...(data.title && { title: data.title }),
+                    ...(data.slug && { slug: data.slug }),
+                    ...(data.description !== undefined && { description: data.description }),
+                    ...(data.cta !== undefined && { cta: data.cta }),
+                    ...(data.tags && { tags: data.tags }),
+                    ...(data.steps && {
+                        steps: {
+                            create: data.steps.map((step, index) => ({
+                                title: step.title,
+                                description: step.description,
+                                order: index
+                            }))
+                        }
+                    })
+                },
+                include: {
+                    steps: {
+                        orderBy: {
+                            order: 'asc'
+                        }
+                    }
+                }
+            });
+
+            return this.mapToEmergency(updated);
         } catch (error) {
-            if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
-                return [];
-            }
-            throw error;
-        }
-    }
-
-    private async writeFile(emergencies: Emergency[]): Promise<void>{
-        const data = JSON.stringify(emergencies, null, 2);
-        await fs.writeFile(this.filePath, data, 'utf-8');
-    }
-
-    public async findAll(): Promise<Emergency[]>{
-        return this.readFile();
-    }
-
-    public async findById(id: string): Promise<Emergency | null>{
-        const emergencies = await this.readFile();
-        const emergency = emergencies.find(em => em.id === id || em.slug === id);
-        return emergency || null;
-    }
-
-    public async create(emergency: Emergency): Promise<Emergency>{
-        const emergencies = await this.readFile();
-        emergencies.push(emergency);
-        await this.writeFile(emergencies);
-        return emergency;
-    }
-
-    public async update(id: string, updatedData: Partial<Emergency>): Promise<Emergency | null>{
-        const emergencies = await this.readFile();
-        const index = emergencies.findIndex(em => em.id === id || em.slug === id);
-        if(index === -1){
+            console.error('Error updating emergency:', error);
             return null;
         }
-        emergencies[index] = { ...emergencies[index], ...updatedData };
-        await this.writeFile(emergencies);
-        return emergencies[index];
     }
 
-    public async delete(id: string): Promise<Emergency | null>{
-        const emergencies = await this.readFile();
-        const index = emergencies.findIndex(em => em.id === id || em.slug === id);
-        if(index === -1){
+    
+    async delete(id: string): Promise<Emergency | null> {
+        try {
+            const emergency = await this.findById(id);
+            if (!emergency) return null;
+
+            
+            await prisma.emergency.delete({
+                where: { id: emergency.id }
+            });
+
+            return emergency;
+        } catch (error) {
+            console.error('Error deleting emergency:', error);
             return null;
         }
-        const deleted = emergencies.splice(index, 1)[0];
-        await this.writeFile(emergencies);
-        return deleted;
+    }
+
+    
+    private mapToEmergency(prismaEmergency: any): Emergency {
+        return {
+            id: prismaEmergency.id,
+            slug: prismaEmergency.slug,
+            title: prismaEmergency.title,
+            description: prismaEmergency.description,
+            cta: prismaEmergency.cta,
+            tags: prismaEmergency.tags,
+            steps: prismaEmergency.steps.map((step: any) => ({
+                id: step.id,
+                title: step.title,
+                description: step.description,
+                order: step.order
+            })),
+            createdAt: prismaEmergency.createdAt,
+            updatedAt: prismaEmergency.updatedAt
+        };
     }
 }

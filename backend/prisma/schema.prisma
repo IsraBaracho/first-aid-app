@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ========================================
+// MODELS
+// ========================================
+
+// Tabela de emergências
+model Emergency {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  description String   @default("")
+  cta         String?
+  tags        String[]
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  
+  // Relacionamento: 1 Emergency tem N Steps
+  steps       Step[]
+
+  @@map("emergencies")
+}
+
+// Tabela de passos
+model Step {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  order       Int      @default(0)
+  
+  // Relacionamento: 1 Step pertence a 1 Emergency
+  emergencyId String
+  emergency   Emergency @relation(fields: [emergencyId], references: [id], onDelete: Cascade)
+
+  @@map("steps")
+}

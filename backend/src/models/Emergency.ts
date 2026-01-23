@@ -11,6 +11,8 @@ export interface Emergency {
     description: string;
     cta: string | null;
     steps: Step[];
+    createdAt?: Date;
+    updatedAt?: Date;
 }
 
 
