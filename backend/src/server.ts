@@ -3,8 +3,8 @@ import cors from 'cors';
 import swaggerUi from 'swagger-ui-express';
 import swaggerSpec from './config/swagger';
 import emergencyRoutes from './routes/emergencyRoutes';
+import app from './app';
 
-const app = express();
 const PORT = process.env.PORT || 4000;
 
 
