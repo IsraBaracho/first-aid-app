@@ -62,7 +62,6 @@ export class EmergencyService {
 
         const exists = await this.repository.findById(id);
         if(!exists){
-            throw new Error('Emergency not found.');
             return null;
         }
         const updateData = { ...data };

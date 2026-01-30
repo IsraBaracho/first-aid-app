@@ -1,6 +1,4 @@
-// src/test.ts
-
-import { EmergencyService } from './services/EmergencyService';
+import { EmergencyService } from '../src/services/EmergencyService';
 
 async function testarService() {
     console.log('🧪 Iniciando testes do EmergencyService...\n');
