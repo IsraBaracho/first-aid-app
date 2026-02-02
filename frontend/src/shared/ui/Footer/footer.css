@@ -1,0 +1,12 @@
+.footer-header{
+    background-color: #F24D4D;
+    color: white;
+    bottom: 0;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 10px;
+}

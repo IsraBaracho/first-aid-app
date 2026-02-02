@@ -1,0 +1,131 @@
+.card-wrapper {
+  display: flex;
+  gap: 24px;
+  border: 2px solid #c2dfd9;
+  border-radius: 16px;
+  padding: 24px;
+  background: #fff;
+  transition: all 0.25s ease;
+  max-width: 650px;
+  margin: 0 auto;
+  cursor: pointer; /* Para indicar que o card é interativo */
+  text-decoration: none;
+  color: inherit;
+}
+
+/* HOVER NO CARD */
+.card-wrapper:hover {
+  border-color: #04826A;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.30);
+}
+
+/* Animação aplicada aos elementos internos */
+.card-wrapper:hover .card-link {
+  transform: translateX(4px) scale(1.05);
+  color: #036b57;
+}
+
+.card-wrapper:hover .card-link .arrow {
+  transform: translateX(6px);
+}
+
+.card-wrapper:hover .card-title{
+    color: #036b57;
+}
+
+.card-wrapper:hover .card-icon {
+    transition: transform 0.5s;
+    transform: scale(1.15);
+}
+/* ÍCONE */
+.card-icon {
+  width: 56px;
+  height: 56px;
+  background: #04826A;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+.card-content {
+  flex: 1;
+}
+
+/* TAGS */
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.tag {
+  padding: 4px 12px;
+  background: #ffecec;
+  color: #c43939;
+  font-size: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* TÍTULO */
+.card-title {
+    
+  color: #555;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+
+
+/* DESCRIÇÃO */
+.card-description {
+  font-size: 14px;
+  color: #555;
+  max-width: 400px;
+  margin-bottom: 16px;
+}
+
+/* LINK COM SETA */
+.card-link {
+  background: none;
+  border: none;
+  color: #04826A;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.25s ease;
+  transform-origin: left;
+}
+
+.card-link .arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 600px) {
+  .card-wrapper {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .card-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 20px;
+  }
+
+  .card-title {
+    font-size: 20px;
+  }
+}

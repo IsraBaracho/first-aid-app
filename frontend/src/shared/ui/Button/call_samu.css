@@ -1,0 +1,73 @@
+.call-samu-btn {
+  width: 100%;
+  max-width: 550px;
+  background-color: #F24D4D;
+  border: none;
+  border-radius: 14px;
+  padding: 20px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: white;
+  transition: transform 0.1s ease, opacity 0.1s ease;
+}
+
+/* On click soft animation*/
+.call-samu-btn:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/*Formatter text*/
+.call-samu-btn .text-group {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+/* Title */
+.call-samu-btn .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* Subtitle */
+.call-samu-btn .subtitle {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  margin-top: 2px;
+}
+
+/* Icon */
+.call-samu-btn .icon {
+  width: 28px;
+  height: 28px;
+}
+
+/*Footer button*/
+.call-samu-small-btn {
+  width: 100px;
+  background-color: #FFFFFF;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 12px;
+  gap: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: #F24D4D;
+}
+
+/* Number 192 */
+.call-samu-small-btn .title {
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/*Icon*/
+.call-samu-small-btn .icon{
+  width: 20px;
+  height: 20px;
+}

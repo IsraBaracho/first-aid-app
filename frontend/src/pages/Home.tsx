@@ -1,7 +1,7 @@
 import Header from '../components/header/Header'
 import Footer from '../components/Footer'
 import GridCards from '../components/grid-cards/GridCards'
-import HeroBanner from '../components/banner/heroBanner'
+import HeroBanner from '../components/Banner/heroBanner'
 
 export default function Home() {
   return (
