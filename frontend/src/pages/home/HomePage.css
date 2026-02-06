@@ -1,10 +1,11 @@
 .home-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1rem;
+  padding: 3rem;
 }
 
 .home-title {
+  color: #114c41;
   text-align: center;
   margin: 2rem 0 1rem;
 }

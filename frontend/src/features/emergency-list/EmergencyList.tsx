@@ -9,7 +9,7 @@ export default function EmergencyList() {
     if (error) return <div className="emergency-list">Erro: {error}</div>;
 
     return (
-        <div className="emergency-list">
+        <div className="grid-cards">
         {emergencies.map((emergency) => (
             <EmergencyCard key={emergency.id} emergency={emergency} />
         ))}

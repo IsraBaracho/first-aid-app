@@ -6,7 +6,7 @@
   padding: 24px;
   background: #fff;
   transition: all 0.25s ease;
-  max-width: 650px;
+  width: 350px;
   margin: 0 auto;
   cursor: pointer; /* Para indicar que o card é interativo */
   text-decoration: none;

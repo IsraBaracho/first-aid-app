@@ -1,4 +1,4 @@
-import CallSamuBtn from '@/shared/ui/Button/CallSamu'
+import CreateEmergencyBtn from '@/shared/ui/Button/CreateEmergency'
 
 import './footer.css'
 export default function Footer() {
@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className='footer-header container'>
       <h1>Lembre-se: Em emergências, sempre chame ajuda profissional!</h1>
       <p>Este guia é informativo e não substitui treinamento adequado em primeiros socorros</p>
-      <CallSamuBtn />
+      <CreateEmergencyBtn />
     </footer>
   )
 }

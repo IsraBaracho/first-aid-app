@@ -38,7 +38,7 @@ export default function EmergencyForm() {
             rows={6}
             value={formData.stepsText}
             onChange={handleChange}
-            placeholder={"Resfrie a área: Use água fria por 10 minutos\nCubra: Use pano limpo"}
+            placeholder={"Resfrie a área: Use água fria por 10 minutos\nCubra: Use pano limpo \nAperte Enter para um novo passo"}
             />
         </label>
 
