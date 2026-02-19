@@ -1,78 +1,164 @@
-![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
-![Express.js](https://img.shields.io/badge/Express.js-404D59?style=for-the-badge)
-![Swagger](https://img.shields.io/badge/Swagger-85EA2D?style=for-the-badge&logo=swagger&logoColor=black)
+# First Aid - Frontend
 
-# React + TypeScript + Vite
+Interface web para visualizar e gerenciar procedimentos de primeiros socorros.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Tecnologias
 
-Currently, two official plugins are available:
+- React 19
+- TypeScript
+- Vite
+- React Router
+- Feature-Sliced Design (FSD)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Arquitetura
 
-## React Compiler
+Este projeto utiliza uma versão simplificada do Feature-Sliced Design:
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+\`\`\`
+src/
+├── app/          # Configuração global (router, providers)
+├── pages/        # Páginas (rotas)
+├── features/     # Funcionalidades específicas
+└── shared/       # Recursos compartilhados (ui, api, types, hooks)
+\`\`\`
 
-## Expanding the ESLint configuration
+### Camadas:
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **app**: Configuração da aplicação (rotas, providers globais)
+- **pages**: Componentes de página que correspondem a rotas
+- **features**: Funcionalidades de negócio auto-contidas
+- **shared**: Componentes UI, API, types e hooks reutilizáveis
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+### Regra de Dependência:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+\`\`\`
+app → pages → features → shared
+\`\`\`
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Camadas superiores podem usar inferiores, mas não o contrário.
+
+## Desenvolvimento
+
+### Instalar dependências:
+\`\`\`bash
+npm install
+\`\`\`
+
+### Rodar em desenvolvimento:
+\`\`\`bash
+npm run dev
+\`\`\`
+
+### Build para produção:
+\`\`\`bash
+npm run build
+\`\`\`
+
+## Estrutura Detalhada
+
+\`\`\`
+src/
+├── app/
+│   └── router.tsx              # Configuração de rotas
+│
+├── pages/
+│   ├── home/                   # Página inicial
+│   ├── emergency-details/      # Detalhes de emergência
+│   └── create-emergency/       # Criar emergência
+│
+├── features/
+│   ├── emergency-list/         # Listagem de emergências
+│   │   ├── EmergencyList.tsx
+│   │   ├── useEmergencies.ts
+│   │   └── index.ts
+│   ├── emergency-card/         # Card de emergência
+│   ├── emergency-details/      # Visualização detalhada
+│   └── emergency-form/         # Formulário de criação
+│
+└── shared/
+    ├── ui/                     # Componentes UI reutilizáveis
+    │   ├── Layout/
+    │   ├── Header/
+    │   ├── Footer/
+    │   └── Button/
+    ├── api/                    # Cliente API
+    │   ├── client.ts
+    │   └── emergencies.ts
+    ├── types/                  # Types TypeScript
+    │   └── emergency.ts
+    └── hooks/                  # Hooks customizados
+        └── useFetch.ts
+\`\`\`
+
+## 🔌 API
+
+O frontend se comunica com o backend via proxy configurado no Vite:
+
+- Desenvolvimento: `http://localhost:3000` → `http://localhost:4000/api`
+- Produção: Configurar variável de ambiente `VITE_API_URL`
+
+## 📚 Features
+
+- ✅ Listagem de emergências
+- ✅ Detalhes de emergência
+- ✅ Criação de emergência (admin)
+- ✅ Navegação por slug ou ID
+- ✅ Design responsivo
+- ✅ Tipagem TypeScript completa
+
+## 🎯 Boas Práticas Aplicadas
+
+- **Separação de Responsabilidades**: Lógica separada de UI (hooks)
+- **Componentes Reutilizáveis**: UI components em `shared/ui`
+- **API Centralizada**: Todas as chamadas em `shared/api`
+- **Custom Hooks**: Lógica de estado encapsulada
+- **TypeScript**: Tipagem forte em todo o projeto
+- **Feature-Sliced Design**: Arquitetura escalável
+
+## 📖 Aprend mais
+
+- [Vite Documentation](https://vitejs.dev/)
+- [React Documentation](https://react.dev/)
+- [Feature-Sliced Design](https://feature-sliced.design/)
+\`\`\`
+
+---
+
+## **6.2 - Adicionar comentários nos arquivos principais**
+
+Adicione comentários explicativos nos arquivos chave:
+
+### **useFetch.ts:**
+```typescript
+/**
+ * Hook genérico para fazer fetching de dados
+ * 
+ * @example
+ * const { data, loading, error, refetch } = useFetch(() => api.get('/users'));
+ * 
+ * @param fetchFn - Função que retorna uma Promise com os dados
+ * @returns { data, loading, error, refetch }
+ */
+export function useFetch<T>(fetchFn: () => Promise<T>): UseFetchReturn<T> {
+  // ...
+}
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+### **emergencies.ts:**
+```typescript
+/**
+ * API Client para endpoints de emergências
+ * 
+ * Centraliza todas as chamadas relacionadas a emergências
+ */
+export const emergenciesApi = {
+  /** Lista todas as emergências */
+  getAll: () => api.get<Emergency[]>('/emergencies'),
+  
+  /** Busca emergência por ID ou slug */
+  getById: (id: string) => api.get<Emergency>(`/emergencies/${id}`),
+  
+  // ...
+}
 ```
+
