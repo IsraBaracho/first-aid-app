@@ -15,8 +15,8 @@
 
 /* HOVER NO CARD */
 .card-wrapper:hover {
-  border-color: #04826A;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.30);
+  border-color: #04826a;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Animação aplicada aos elementos internos */
@@ -29,19 +29,19 @@
   transform: translateX(6px);
 }
 
-.card-wrapper:hover .card-title{
-    color: #036b57;
+.card-wrapper:hover .card-title {
+  color: #036b57;
 }
 
 .card-wrapper:hover .card-icon {
-    transition: transform 0.5s;
-    transform: scale(1.15);
+  transition: transform 0.5s;
+  transform: scale(1.15);
 }
 /* ÍCONE */
 .card-icon {
   width: 56px;
   height: 56px;
-  background: #04826A;
+  background: #04826a;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,14 +74,12 @@
 
 /* TÍTULO */
 .card-title {
-    
   color: #555;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
   margin-bottom: 12px;
 }
-
 
 /* DESCRIÇÃO */
 .card-description {
@@ -95,7 +93,7 @@
 .card-link {
   background: none;
   border: none;
-  color: #04826A;
+  color: #04826a;
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;

@@ -18,13 +18,11 @@ Interface web para visualizar e gerenciar procedimentos de primeiros socorros.
 
 Este projeto utiliza uma versão simplificada do Feature-Sliced Design:
 
-
 src/
-├── app/          # Configuração global (router, providers)
-├── pages/        # Páginas (rotas)
-├── features/     # Funcionalidades específicas
-└── shared/       # Recursos compartilhados (ui, api, types, hooks)
-
+├── app/ # Configuração global (router, providers)
+├── pages/ # Páginas (rotas)
+├── features/ # Funcionalidades específicas
+└── shared/ # Recursos compartilhados (ui, api, types, hooks)
 
 ### Camadas:
 
@@ -35,12 +33,9 @@ src/
 
 ### Regra de Dependência:
 
-
 app → pages → features → shared
 
-
 Camadas superiores podem usar inferiores, mas não o contrário.
-
 
 ## 🔌 API
 
@@ -49,7 +44,7 @@ O frontend se comunica com o backend via proxy configurado no Vite:
 - Desenvolvimento: `http://localhost:3000` → `http://localhost:4000/api`
 - Produção: Configurar variável de ambiente `VITE_API_URL`
 
-## 📚 Features
+## Features
 
 - ✅ Listagem de emergências
 - ✅ Detalhes de emergência
@@ -72,7 +67,7 @@ O frontend se comunica com o backend via proxy configurado no Vite:
 - [Vite Documentation](https://vitejs.dev/)
 - [React Documentation](https://react.dev/)
 - [Feature-Sliced Design](https://feature-sliced.design/)
-\`\`\`
+  \`\`\`
 
 ---
 
@@ -81,13 +76,14 @@ O frontend se comunica com o backend via proxy configurado no Vite:
 Adicione comentários explicativos nos arquivos chave:
 
 ### **useFetch.ts:**
+
 ```typescript
 /**
  * Hook genérico para fazer fetching de dados
- * 
+ *
  * @example
  * const { data, loading, error, refetch } = useFetch(() => api.get('/users'));
- * 
+ *
  * @param fetchFn - Função que retorna uma Promise com os dados
  * @returns { data, loading, error, refetch }
  */
@@ -97,20 +93,20 @@ export function useFetch<T>(fetchFn: () => Promise<T>): UseFetchReturn<T> {
 ```
 
 ### **emergencies.ts:**
+
 ```typescript
 /**
  * API Client para endpoints de emergências
- * 
+ *
  * Centraliza todas as chamadas relacionadas a emergências
  */
 export const emergenciesApi = {
   /** Lista todas as emergências */
-  getAll: () => api.get<Emergency[]>('/emergencies'),
-  
+  getAll: () => api.get<Emergency[]>("/emergencies"),
+
   /** Busca emergência por ID ou slug */
   getById: (id: string) => api.get<Emergency>(`/emergencies/${id}`),
-  
-  // ...
-}
-```
 
+  // ...
+};
+```

@@ -1,7 +1,7 @@
 .call-samu-btn {
   width: 100%;
   max-width: 550px;
-  background-color: #F24D4D;
+  background-color: #f24d4d;
   border: none;
   border-radius: 14px;
   padding: 20px 24px;
@@ -10,7 +10,9 @@
   align-items: center;
   cursor: pointer;
   color: white;
-  transition: transform 0.1s ease, opacity 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    opacity 0.1s ease;
 }
 
 /* On click soft animation*/
@@ -48,7 +50,7 @@
 /*Footer button*/
 .call-samu-small-btn {
   width: 100px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none;
   border-radius: 20px;
   padding: 10px 12px;
@@ -57,7 +59,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: #F24D4D;
+  color: #f24d4d;
 }
 
 /* Number 192 */
@@ -67,7 +69,7 @@
 }
 
 /*Icon*/
-.call-samu-small-btn .icon{
+.call-samu-small-btn .icon {
   width: 20px;
   height: 20px;
 }

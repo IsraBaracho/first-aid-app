@@ -1,6 +1,6 @@
-import CallSamu from '@/shared/ui/Button/CallSamu';
-import FindHospital from '@/shared/ui/Button/FindHospital';
-import './header.css';
+import CallSamu from "@/shared/ui/Button/CallSamu";
+import FindHospital from "@/shared/ui/Button/FindHospital";
+import "./header.css";
 
 export default function Header() {
   return (

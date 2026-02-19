@@ -1,5 +1,5 @@
-import { Router } from 'express';
-import { EmergencyController } from '../controllers/EmergencyController';
+import { Router } from "express";
+import { EmergencyController } from "../controllers/EmergencyController";
 
 const router = Router();
 const controller = new EmergencyController();
@@ -24,7 +24,7 @@ const controller = new EmergencyController();
  *       500:
  *         description: Erro no servidor
  */
-router.get('/emergencies', controller.getAll);
+router.get("/emergencies", controller.getAll);
 
 /**
  * @swagger
@@ -46,7 +46,7 @@ router.get('/emergencies', controller.getAll);
  *       404:
  *         description: Emergência não encontrada
  */
-router.get('/emergencies/:id', controller.getById);
+router.get("/emergencies/:id", controller.getById);
 
 /**
  * @swagger
@@ -67,7 +67,7 @@ router.get('/emergencies/:id', controller.getById);
  *       400:
  *         description: Dados inválidos
  */
-router.post('/emergencies', controller.create);
+router.post("/emergencies", controller.create);
 
 /**
  * @swagger
@@ -94,7 +94,7 @@ router.post('/emergencies', controller.create);
  *       404:
  *         description: Emergência não encontrada
  */
-router.put('/emergencies/:id', controller.update);
+router.put("/emergencies/:id", controller.update);
 
 /**
  * @swagger
@@ -115,6 +115,6 @@ router.put('/emergencies/:id', controller.update);
  *       404:
  *         description: Emergência não encontrada
  */
-router.delete('/emergencies/:id', controller.delete);
+router.delete("/emergencies/:id", controller.delete);
 
 export default router;

@@ -1,4 +1,4 @@
-import "./heroBanner.css"
+import "./heroBanner.css";
 
 export default function HeroBanner() {
   return (
@@ -10,5 +10,5 @@ export default function HeroBanner() {
         </div>
       </div>
     </section>
-  )
+  );
 }

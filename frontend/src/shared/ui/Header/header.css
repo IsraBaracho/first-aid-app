@@ -1,12 +1,12 @@
 .site-header {
-  background-color: #04826A;
+  background-color: #04826a;
   display: flex;
-  justify-content: center;    
-  gap: 1rem; 
+  justify-content: center;
+  gap: 1rem;
   padding: 1rem;
   position: sticky;
   top: 0;
-  z-index: 1000;                   
+  z-index: 1000;
 }
 
 @media (max-width: 768px) {

@@ -1,216 +1,228 @@
 // src/config/swagger.ts
 
-import swaggerJsdoc from 'swagger-jsdoc';
+import swaggerJsdoc from "swagger-jsdoc";
 
 const options: swaggerJsdoc.Options = {
   definition: {
-    openapi: '3.0.0',
+    openapi: "3.0.0",
     info: {
-      title: 'First Aid API',
-      version: '1.0.0',
-      description: 'API RESTful for managing medical emergencies and first aid procedures.',
+      title: "First Aid API",
+      version: "1.0.0",
+      description:
+        "API RESTful for managing medical emergencies and first aid procedures.",
       contact: {
-        name: 'Israel Baracho',
-        email: 'israbaracho@gmail.com',
-        url: 'https://github.com/IsraBaracho'
+        name: "Israel Baracho",
+        email: "israbaracho@gmail.com",
+        url: "https://github.com/IsraBaracho",
       },
       license: {
-        name: 'MIT',
-        url: 'https://opensource.org/licenses/MIT'
-      }
+        name: "MIT",
+        url: "https://opensource.org/licenses/MIT",
+      },
     },
     servers: [
       {
-        url: 'http://localhost:4000',
-        description: 'Development server'
-      }
+        url: "http://localhost:4000",
+        description: "Development server",
+      },
     ],
     tags: [
       {
-        name: 'Emergencies',
-        description: 'Endpoints para gerenciar emergências médicas'
+        name: "Emergencies",
+        description: "Endpoints para gerenciar emergências médicas",
       },
       {
-        name: 'Health',
-        description: 'Endpoint de health check'
-      }
+        name: "Health",
+        description: "Endpoint de health check",
+      },
     ],
     components: {
       schemas: {
         Step: {
-          type: 'object',
-          required: ['title', 'description'],
+          type: "object",
+          required: ["title", "description"],
           properties: {
             title: {
-              type: 'string',
-              description: 'Título do passo',
-              example: 'Resfrie a área'
+              type: "string",
+              description: "Título do passo",
+              example: "Resfrie a área",
             },
             description: {
-              type: 'string',
-              description: 'Descrição detalhada do passo',
-              example: 'Coloque a área queimada sob água fria corrente por 10-20 minutos'
-            }
-          }
+              type: "string",
+              description: "Descrição detalhada do passo",
+              example:
+                "Coloque a área queimada sob água fria corrente por 10-20 minutos",
+            },
+          },
         },
         Emergency: {
-          type: 'object',
-          required: ['id', 'slug', 'title', 'tags', 'description', 'cta', 'steps'],
+          type: "object",
+          required: [
+            "id",
+            "slug",
+            "title",
+            "tags",
+            "description",
+            "cta",
+            "steps",
+          ],
           properties: {
             id: {
-              type: 'string',
-              description: 'ID único da emergência (gerado automaticamente)',
-              example: 'queimadura-de-primeiro-grau-1733328000'
+              type: "string",
+              description: "ID único da emergência (gerado automaticamente)",
+              example: "queimadura-de-primeiro-grau-1733328000",
             },
             slug: {
-              type: 'string',
-              description: 'Slug da emergência (gerado do título)',
-              example: 'queimadura-de-primeiro-grau'
+              type: "string",
+              description: "Slug da emergência (gerado do título)",
+              example: "queimadura-de-primeiro-grau",
             },
             title: {
-              type: 'string',
-              description: 'Título da emergência',
-              example: 'Queimadura de Primeiro Grau'
+              type: "string",
+              description: "Título da emergência",
+              example: "Queimadura de Primeiro Grau",
             },
             tags: {
-              type: 'array',
+              type: "array",
               items: {
-                type: 'string'
+                type: "string",
               },
-              description: 'Tags relacionadas',
-              example: ['queimadura', 'urgente', 'primeiros-socorros']
+              description: "Tags relacionadas",
+              example: ["queimadura", "urgente", "primeiros-socorros"],
             },
             description: {
-              type: 'string',
-              description: 'Descrição da emergência',
-              example: 'Procedimento para tratar queimaduras leves'
+              type: "string",
+              description: "Descrição da emergência",
+              example: "Procedimento para tratar queimaduras leves",
             },
             cta: {
-              type: 'string',
+              type: "string",
               nullable: true,
-              description: 'Call to action / aviso importante',
-              example: 'Se a queimadura for grave, procure atendimento médico imediatamente'
+              description: "Call to action / aviso importante",
+              example:
+                "Se a queimadura for grave, procure atendimento médico imediatamente",
             },
             steps: {
-              type: 'array',
+              type: "array",
               items: {
-                $ref: '#/components/schemas/Step'
+                $ref: "#/components/schemas/Step",
               },
-              description: 'Passos do procedimento'
-            }
-          }
+              description: "Passos do procedimento",
+            },
+          },
         },
         CreateEmergencyDTO: {
-          type: 'object',
-          required: ['title', 'steps'],
+          type: "object",
+          required: ["title", "steps"],
           properties: {
             title: {
-              type: 'string',
-              description: 'Título da emergência',
-              example: 'Queimadura de Primeiro Grau'
+              type: "string",
+              description: "Título da emergência",
+              example: "Queimadura de Primeiro Grau",
             },
             steps: {
-              type: 'array',
+              type: "array",
               items: {
-                $ref: '#/components/schemas/Step'
+                $ref: "#/components/schemas/Step",
               },
-              description: 'Passos do procedimento (mínimo 1)',
-              minItems: 1
+              description: "Passos do procedimento (mínimo 1)",
+              minItems: 1,
             },
             slug: {
-              type: 'string',
-              description: 'Slug customizado (opcional, será gerado se não fornecido)',
-              example: 'queimadura-primeiro-grau'
+              type: "string",
+              description:
+                "Slug customizado (opcional, será gerado se não fornecido)",
+              example: "queimadura-primeiro-grau",
             },
             tags: {
-              type: 'array',
+              type: "array",
               items: {
-                type: 'string'
+                type: "string",
               },
-              description: 'Tags relacionadas',
-              example: ['queimadura', 'urgente']
+              description: "Tags relacionadas",
+              example: ["queimadura", "urgente"],
             },
             description: {
-              type: 'string',
-              description: 'Descrição da emergência',
-              example: 'Procedimento para tratar queimaduras leves'
+              type: "string",
+              description: "Descrição da emergência",
+              example: "Procedimento para tratar queimaduras leves",
             },
             cta: {
-              type: 'string',
-              description: 'Call to action / aviso importante',
-              example: 'Procure médico se grave'
-            }
-          }
+              type: "string",
+              description: "Call to action / aviso importante",
+              example: "Procure médico se grave",
+            },
+          },
         },
         UpdateEmergencyDTO: {
-          type: 'object',
+          type: "object",
           properties: {
             title: {
-              type: 'string',
-              description: 'Novo título da emergência',
-              example: 'Queimadura Grave de Primeiro Grau'
+              type: "string",
+              description: "Novo título da emergência",
+              example: "Queimadura Grave de Primeiro Grau",
             },
             slug: {
-              type: 'string',
-              description: 'Novo slug',
-              example: 'queimadura-grave'
+              type: "string",
+              description: "Novo slug",
+              example: "queimadura-grave",
             },
             tags: {
-              type: 'array',
+              type: "array",
               items: {
-                type: 'string'
+                type: "string",
               },
-              description: 'Novas tags'
+              description: "Novas tags",
             },
             description: {
-              type: 'string',
-              description: 'Nova descrição'
+              type: "string",
+              description: "Nova descrição",
             },
             cta: {
-              type: 'string',
-              description: 'Novo call to action'
+              type: "string",
+              description: "Novo call to action",
             },
             steps: {
-              type: 'array',
+              type: "array",
               items: {
-                $ref: '#/components/schemas/Step'
+                $ref: "#/components/schemas/Step",
               },
-              description: 'Novos passos'
-            }
-          }
+              description: "Novos passos",
+            },
+          },
         },
         Error: {
-          type: 'object',
+          type: "object",
           properties: {
             error: {
-              type: 'string',
-              description: 'Mensagem de erro',
-              example: 'Emergency not found'
-            }
-          }
+              type: "string",
+              description: "Mensagem de erro",
+              example: "Emergency not found",
+            },
+          },
         },
         HealthCheck: {
-          type: 'object',
+          type: "object",
           properties: {
             status: {
-              type: 'string',
-              example: 'ok'
+              type: "string",
+              example: "ok",
             },
             message: {
-              type: 'string',
-              example: 'Server is running'
+              type: "string",
+              example: "Server is running",
             },
             timestamp: {
-              type: 'string',
-              format: 'date-time',
-              example: '2024-12-04T10:30:00.000Z'
-            }
-          }
-        }
-      }
-    }
+              type: "string",
+              format: "date-time",
+              example: "2024-12-04T10:30:00.000Z",
+            },
+          },
+        },
+      },
+    },
   },
-  apis: ['./src/routes/*.ts', './src/server.ts']
+  apis: ["./src/routes/*.ts", "./src/server.ts"],
 };
 
 const swaggerSpec = swaggerJsdoc(options);

@@ -1,2 +1,2 @@
-export { default as EmergencyDetails } from './EmergencyDetails';
-export { useEmergency } from './useEmergency';
+export { default as EmergencyDetails } from "./EmergencyDetails";
+export { useEmergency } from "./useEmergency";

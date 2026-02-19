@@ -22,6 +22,7 @@ Esta API permite criar, visualizar, atualizar e deletar procedimentos de emergê
 ## 📂 Arquitetura do Projeto
 
 O projeto segue uma arquitetura em camadas (Layered Architecture):
+
 ```
 src/
 ├── models/          # Interfaces e tipos TypeScript
@@ -32,63 +33,74 @@ src/
 └── server.ts        # Configuração e inicialização do servidor
 ```
 
-
-
 ## 🔧 Instalação e Execução
 
 ### **Pré-requisitos:**
+
 - Node.js (v16 ou superior)
 - npm ou yarn
 
 ### **Passo a passo:**
 
 1. Clone o repositório:
+
 ```bash
 git clone https://github.com/seu-usuario/first-aid-api.git
 cd first-aid-api
 ```
 
 2. Instale as dependências:
+
 ```bash
 npm install
 ```
 
 3. Execute em modo de desenvolvimento:
+
 ```bash
 npm run dev
 ```
 
 4. O servidor estará rodando em:
+
 ```
 http://localhost:4000
 ```
+
 ## 📡 Endpoints da API
 
 ### **Base URL:** `http://localhost:4000/api`
 
 ### **Health Check:**
+
 ```http
 GET /health
 ```
+
 Verifica se o servidor está funcionando.
 
 ---
 
 ### **1. Listar todas as emergências**
+
 ```http
 GET /api/emergencies
 ```
+
 ---
 
 ### **2. Buscar emergência por ID ou slug**
+
 ```http
 GET /api/emergencies/:id
 ```
 
 **Parâmetros:**
+
 - `id` (string) - ID ou slug da emergência
 
 **Exemplo:**
+
 ```http
 GET /api/emergencies/queimadura-1733328000
 GET /api/emergencies/queimadura
@@ -97,15 +109,18 @@ GET /api/emergencies/queimadura
 ---
 
 ### **3. Criar nova emergência**
+
 ```http
 POST /api/emergencies
 ```
 
 **Campos obrigatórios:**
+
 - `title` (string)
 - `steps` (array) - pelo menos 1 step
 
 **Campos opcionais:**
+
 - `slug` (string) - gerado automaticamente se não fornecido
 - `tags` (array)
 - `description` (string)
@@ -114,22 +129,27 @@ POST /api/emergencies
 ---
 
 ### **4. Atualizar emergência**
+
 ```http
 PUT /api/emergencies/:id
 ```
+
 ---
 
 ### **5. Deletar emergência**
+
 ```http
 DELETE /api/emergencies/:id
 ```
-``
----
+
+## ``
 
 `
+
 ## 🧪 Testando a API
 
 ### **Postman**
+
 1. Importe a collection do Postman
 2. Configure a base URL: `http://localhost:4000`
 3. Teste os endpoints
@@ -137,6 +157,7 @@ DELETE /api/emergencies/:id
 ## 📦 Estrutura de Dados
 
 Os dados são armazenados em `data/emergencies.json`:
+
 ```json
 [
   {
@@ -176,6 +197,7 @@ Os dados são armazenados em `data/emergencies.json`:
 ## 👨‍💻 Autor
 
 **Israel Baracho**
+
 - GitHub: [@IsraBaracho](https://github.com/IsraBaracho)
 - LinkedIn: [Israel Baracho](https://www.linkedin.com/in/israel-baracho-830111324/)
 - Email: israbaracho@gmail.com
@@ -185,4 +207,3 @@ Os dados são armazenados em `data/emergencies.json`:
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-

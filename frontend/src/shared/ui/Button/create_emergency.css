@@ -1,7 +1,7 @@
 .create-emergency-btn {
   width: fit-content;
   max-width: 550px;
-  background-color: #04826A;
+  background-color: #04826a;
   border: none;
   border-radius: 14px;
   padding: 20px 24px;
@@ -10,7 +10,9 @@
   align-items: center;
   cursor: pointer;
   color: white;
-  transition: transform 0.1s ease, opacity 0.1s ease;
+  transition:
+    transform 0.1s ease,
+    opacity 0.1s ease;
 }
 
 /* On click soft animation*/
@@ -32,12 +34,10 @@
   font-weight: 700;
 }
 
-
-
 /*Footer button*/
 .create-emergency-small-btn {
   width: 100px;
-  background-color: #FFFFFF;
+  background-color: #ffffff;
   border: none;
   border-radius: 20px;
   padding: 10px 12px;
@@ -46,6 +46,5 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  color: #04826A;
+  color: #04826a;
 }
-

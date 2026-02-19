@@ -1,27 +1,53 @@
-.grid-cards{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:16px;
-    margin-top:16px;
-    justify-items: start;
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 16px;
+  justify-items: start;
 }
 
 @media (max-width: 768px) {
-    .grid-cards {
-        grid-template-columns: 1fr;
-    }
+  .grid-cards {
+    grid-template-columns: 1fr;
+  }
 }
 
-.emergency-card-link{text-decoration:none;color:inherit}
-.emergency-card{
-    background:#fff;
-    border-radius:12px;
-    padding:16px;
-    border:1px solid #e9f4f0;
-    transition:transform .12s ease, box-shadow .12s ease;
+.emergency-card-link {
+  text-decoration: none;
+  color: inherit;
 }
-.emergency-card:hover{transform:translateY(-4px);box-shadow:0 10px 24px rgba(0,0,0,0.06)}
-.card-tags{display:flex;gap:8px;margin-bottom:8px}
-.card-tag{background:#f4fffb;color:#0f7a68;padding:6px 8px;border-radius:999px;font-weight:700;font-size:12px}
-.card-title{margin:0 0 8px 0;color:#114c41}
-.card-desc{margin:0;color:#566b66;font-size:14px}
+.emergency-card {
+  background: #fff;
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid #e9f4f0;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease;
+}
+.emergency-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+}
+.card-tags {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.card-tag {
+  background: #f4fffb;
+  color: #0f7a68;
+  padding: 6px 8px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 12px;
+}
+.card-title {
+  margin: 0 0 8px 0;
+  color: #114c41;
+}
+.card-desc {
+  margin: 0;
+  color: #566b66;
+  font-size: 14px;
+}
