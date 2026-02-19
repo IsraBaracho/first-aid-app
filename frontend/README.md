@@ -1,4 +1,8 @@
-# First Aid - Frontend
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+
+🏥 First Aid Interface
 
 Interface web para visualizar e gerenciar procedimentos de primeiros socorros.
 
