@@ -18,13 +18,13 @@ Interface web para visualizar e gerenciar procedimentos de primeiros socorros.
 
 Este projeto utiliza uma versão simplificada do Feature-Sliced Design:
 
-\`\`\`
+
 src/
 ├── app/          # Configuração global (router, providers)
 ├── pages/        # Páginas (rotas)
 ├── features/     # Funcionalidades específicas
 └── shared/       # Recursos compartilhados (ui, api, types, hooks)
-\`\`\`
+
 
 ### Camadas:
 
@@ -35,32 +35,17 @@ src/
 
 ### Regra de Dependência:
 
-\`\`\`
+
 app → pages → features → shared
-\`\`\`
+
 
 Camadas superiores podem usar inferiores, mas não o contrário.
 
-## Desenvolvimento
 
-### Instalar dependências:
-\`\`\`bash
-npm install
-\`\`\`
-
-### Rodar em desenvolvimento:
-\`\`\`bash
-npm run dev
-\`\`\`
-
-### Build para produção:
-\`\`\`bash
-npm run build
-\`\`\`
 
 ## Estrutura Detalhada
 
-\`\`\`
+
 src/
 ├── app/
 │   └── router.tsx              # Configuração de rotas
@@ -92,7 +77,7 @@ src/
     │   └── emergency.ts
     └── hooks/                  # Hooks customizados
         └── useFetch.ts
-\`\`\`
+
 
 ## 🔌 API
 
