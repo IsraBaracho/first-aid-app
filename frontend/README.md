@@ -42,43 +42,6 @@ app → pages → features → shared
 Camadas superiores podem usar inferiores, mas não o contrário.
 
 
-
-## Estrutura Detalhada
-
-
-src/
-├── app/
-│   └── router.tsx              # Configuração de rotas
-│
-├── pages/
-│   ├── home/                   # Página inicial
-│   ├── emergency-details/      # Detalhes de emergência
-│   └── create-emergency/       # Criar emergência
-│
-├── features/
-│   ├── emergency-list/         # Listagem de emergências
-│   │   ├── EmergencyList.tsx
-│   │   ├── useEmergencies.ts
-│   │   └── index.ts
-│   ├── emergency-card/         # Card de emergência
-│   ├── emergency-details/      # Visualização detalhada
-│   └── emergency-form/         # Formulário de criação
-│
-└── shared/
-    ├── ui/                     # Componentes UI reutilizáveis
-    │   ├── Layout/
-    │   ├── Header/
-    │   ├── Footer/
-    │   └── Button/
-    ├── api/                    # Cliente API
-    │   ├── client.ts
-    │   └── emergencies.ts
-    ├── types/                  # Types TypeScript
-    │   └── emergency.ts
-    └── hooks/                  # Hooks customizados
-        └── useFetch.ts
-
-
 ## 🔌 API
 
 O frontend se comunica com o backend via proxy configurado no Vite:
